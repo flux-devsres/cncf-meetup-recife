@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-podinfo-v1
+  name: backend-podinfo
   namespace: demo1
   labels:
-    app: backend-podinfo-v1
+    app: backend-podinfo
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: backend-podinfo
-      version: v1
   template:
     metadata:
       labels:
         app: backend-podinfo
-        version: v1
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "9898"
