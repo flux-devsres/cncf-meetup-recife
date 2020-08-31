@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-podinfo
-  namespace: demo1
+  name: backend-podinfo
+  namespace:demo-release
   labels:
-    app: frontend-podinfo
+    app: backend-podinfo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frontend-podinfo
-      version: v1
+      app: backend-podinfo
   template:
     metadata:
       labels:
-        app: frontend-podinfo
-        version: v1
+        app: backend-podinfo
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "9898"
@@ -38,8 +36,8 @@ spec:
           env:
           - name: PODINFO_UI_COLOR
             value: #34577c
-          - name: PODINFO_BACKEND_URL
-            value: http://backend-podinfo.apps.svc.cluster.local:9898/echo
+          - name: PODINFO_UI_LOGO
+            value: https://eks.handson.flagger.dev/cuddle_bunny.gif            
           ports:
             - name: http
               containerPort: 9898
