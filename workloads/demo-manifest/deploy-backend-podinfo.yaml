@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-podinfo
-  namespace:demo-release
+  namespace: demo-manifest
   labels:
     app: backend-podinfo
 spec:
